@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;600&display=swap');
+
+.me-container {
+  margin: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  background-color: #fbc6cf;
+  transition: transform 0.2s;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.me-container:hover {
+  transform: scale(1.02);
+}
+
+.me-content {
+  display: flex;
+}
+
+.me-pictures {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.me-picture {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  /* Removed the border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased box shadow */
+  transition: transform 0.2s;
+}
+
+.me-picture:hover {
+  transform: scale(1.05);
+}
+
+.me-details {
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+.me-details h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.me-details h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  transition: color 0.2s;
+}
+
+.me-details p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.green-flags:hover h2,
+.green-flags:hover p {
+  color: #006f00; /* Green */
+}
+
+.red-flags:hover h2,
+.red-flags:hover p {
+  color: #ff0000; /* Red */
+}
+
+.beige-flags:hover h2,
+.beige-flags:hover p {
+  color: #f5f5dc; /* Beige */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .me-content {
+    flex-direction: column;
+  }
+
+  .me-details h1 {
+    font-size: 2rem;
+  }
+
+  .me-details h2 {
+    font-size: 1.5rem;
+  }
+
+  .me-details p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .me-container {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
+
+  .me-details h1 {
+    font-size: 1.75rem;
+  }
+
+  .me-details h2 {
+    font-size: 1.25rem;
+  }
+
+  .me-details p {
+    font-size: 0.75rem;
+  }
+}

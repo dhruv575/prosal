@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;600&display=swap');
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  cursor: none; /* Hide the default cursor */
+}
+
+.custom-cursor {
+  width: 32px; /* Adjust size as needed */
+  height: 32px;
+  position: absolute;
+  pointer-events: none; /* Prevent interaction with the cursor image */
+  background: url('./assets/heart_logo.png') no-repeat center center;
+  background-size: contain;
+  z-index: 9999;
+}
+
+.cursor-trail {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #8b0000; /* dark red */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.5;
+}
