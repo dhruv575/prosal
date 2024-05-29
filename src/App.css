@@ -52,3 +52,13 @@ body, html, #root {
   z-index: 9998;
   opacity: 0.5;
 }
+
+@media (max-width: 768px) {
+  .App > *:not(.mobile-message) {
+    display: none;
+  }
+  
+  .mobile-message {
+    display: flex;
+  }
+}

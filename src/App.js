@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import Header from './components/Header';
-import MeSection from './components/Me';
+import Me from './components/Me';
 import You from './components/You';
-import DecisionSection from './components/Decision';
+import Decision from './components/Decision';
+import MobileMessage from './components/MobileMessage';
 import './App.css';
 
 function App() {
@@ -46,10 +47,10 @@ function App() {
   return (
     <div className="App gradient-background">
       <Header />
-      <MeSection />
+      <Me />
       <You />
-      <DecisionSection />
-      {/* Other components */}
+      <Decision />
+      <MobileMessage />
     </div>
   );
 }

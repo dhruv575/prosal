@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Prosal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is just a silly little project that people can use to learn a bit more about web dev, but also in case people want a more romantic way of asking someone out! It's a very basic and not so great looking website (that does not work at all on mobile) as of now that just employs pretty basic javascript and css code. It has 4 sections, the first to talk a little bit more about who you are and would be as a partner and a chance to display some of your own personality, the second to talk about some of the things you like about the person you're askin out, the third so they can say yes, and the fourth to give some date ideas once they do say yes. It also has some silly little features, like the green flags turning green when hovered over, the special mouse and mouse trail, and the no button that runs away.
 
-## Available Scripts
+The main goal of this is to give people an intro into web dev and the whole process starting at forking a github to actually deploying a website. Hopefully you enjoy it at least a little bit.
 
-In the project directory, you can run:
+## Getting Started
+First, you're gonna want to fork the repository. In the top right hand corner of the Github page, you should see a "Fork" button. Go ahead and click on it to have your own personal app. Next, you are going to want to be able to open this code on your local environment. 
 
-### `npm start`
+### Never Coded Before
+If you have never coded before, let's start by downloading the latest version of Visual Studio Code from: https://code.visualstudio.com/download
+Next, we will also be needing to have node.js and npm installed, which we can get from: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Once these are both installed, go ahead and retsart your computer. Then follow along with the rest of the readme as normal.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### After Installations
+From your new forked repository, go ahead and press code and copy the link
+Go to the terimnal and run 
+```
+git clone YOUR_LINK_HERE
+cd prosal
+code .
+```
+This should open a new VS code with your folder open. From here, run
+```
+npm install
+npm run start
+```
+The install could take a couple minutes, but once it's done, you should be able to see the application for yourself after running npm run start at localhost:3000
 
-### `npm test`
+## Changing Things
+I highly reccomend you change basically everything and not just fill in the template (except maybe the scroll since that's more complicated), both for your own personal learning and so that it truly is unique for whoever you make it for. With that in mind, here's how to customize the different major parts. If you have any questions, leave a comment on the Tiktok and I'll try and answer there or adjust the README here to make them clearer.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Structure
+The website you are actually seeing at localhost:3000 is just the code in `App.js`. However, the way `App.js` (and many React projects) is structured is as a series of components. For example, the Header at the top is displayed by `<Header />` at line 48. You will also notice that the only things being directly displayed are the things in the return block. 
+```
+return (
+<div className="App gradient-background">
+    <Header />
+    <Me />
+    <You />
+    <Decision />
+</div>
+);
+```
+If you would like to add another section, or remove a section, and have that be displayed on the actual website, you will need to make changes in `App.js`.
 
-### `npm run build`
+### Components
+All of the components are stored in `src/components`. You will notice that each one has a `.css` file and a `.js` file. The `.js` file lays out the structure and specifics of our components, and the `.css` tells the website how those components should look stylistically. Therefore, if you wanted to add something to one of your components, like a line of text, you would make that chamge in the `.js` file, and if you wanted to make that line of text look a specific way, you would add a style in the `.css` file and link the two together. 
+```
+<div className="dates-item">
+  <img src="/path/to/image2.png" alt="Date 2" className="dates-picture" />
+  <h2>Title 2</h2>
+  <p>Placeholder description for date 2.</p>
+</div>
+```
+For example, this snippet from `dates.js`. Here we have 3 things (an image, a header, and a text) all grouped together into a div block. Div blocks are used to denote a solid component (i.e. connect multiple things), and this one is structured to be a "dates-item", while the image is structured to be a "dates-picture".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Looking at `dates.css`, we can see 
+```
+.dates-item {
+  background-color: #8b0000; /* dark red */
+  color: #ffffff; /* white text for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+.dates-item:hover {
+  transform: scale(1.02);
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+.dates-picture {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+```
+This code tells our website how to display the picture and box and how to style them (i.e. the picture should only be 12rem wide and 12rem tall).
 
-### `npm run eject`
+You can go through and mess around with editing these components and see what changes happen on the website. The website should automatically reload anytime you save a `.js` file.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Images
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Images should be uploaded in the assets folder for consistency's sake. A good example of how you can import and place images in your website is in the Header component with the heart logo. Go ahead and follow that example for getting your images in when you do end up adding them as well!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Where to go for help
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Probably the best resource for help at this point is ChatGPT (I did use a decent bit of help from it to code this). If you give it code, as well as an explanation of what you want to change/fix, it will do a pretty great job at giving you edited code as well as explaining and pointing out what each edit does!
 
-## Learn More
+### Deploying the website
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The easiest way to deploy websites like this is through Vercel in my opinion. The first thing we will need to do is push your changes to github. You will also need to push your changes to github anytime in the future when you want to see the changes go live on the domain (i.e. your changes will still appear on localhost:3000, but will not appear on pleasedateme.com without you pushing to github).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can do this by 
+```
+git add .
+git commit -m"TYPE WHATEVER CHANGES YOU MADE IN THESE QUOTES"
+git push
+```
+Once this is all pushed, you can go to vercel: https://vercel.com/
+Create an account, opt for hobby, and then connect your github.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+From here, you should be able to select your github repositories. Choose prosal and deploy! This will take a few minutes but at the end you should be able to see your website live and have a couple of free link options to send to the person of your dreams
